@@ -8,14 +8,9 @@ android:
    - build-tools-26.0.2
    - android-26
    - extra
-
-   before_install:
+  before_install:
     - chmod +x gradlew
-   install:
+  install:
     - ./gradlew assemble
-   script:
+  script:
     - .gradlew test
-
-
-
-

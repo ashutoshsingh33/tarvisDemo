@@ -7,6 +7,8 @@ android:
                 - extra-android-m2repository
 script:
         - ./gradlew build
+install:
+        - bundle install
 script:
         - hockey_build
 before_install:

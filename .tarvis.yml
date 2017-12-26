@@ -1,1 +1,21 @@
+language: android
+install: ant deps
+sudo: required
+jdk: oraclejdk8
+
+android:
+  components:
+   - build-tools-26.0.2
+   - android-26
+   - extra
+
+   before_install:
+    - chmod +x gradlew
+   install:
+    - ./gradlew assemble
+   script:
+    - .gradlew test
+
+
+
 

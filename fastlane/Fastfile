@@ -36,6 +36,7 @@ platform :android do
 
   desc "Upload a new Beta Build to Hockey App"
       lane :hockey_build do
+         ensure_git_status_clean
          gradle(task: 'assemble', build_type: 'Debug')
 
          value = get_version_name(
@@ -46,6 +47,7 @@ platform :android do
          puts "VALUE = #{value}"
 
          badge(glob: "/app/src/main/res/mipmap-*dpi/ic_launcher.{png,PNG}",
+                   shield_io_timeout: 10
                    shield: "Version-#{value}-blue",
                    no_badge: true)
          hockey(
